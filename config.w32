@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("sentinel", "for sentinel support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("sentinel", "enable sentinel support", "no");
+
+if (PHP_SENTINEL != "no") {
+	EXTENSION("sentinel", "sentinel.c", PHP_EXTNAME_SHARED, "/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1");
+}
+
