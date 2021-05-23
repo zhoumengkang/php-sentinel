@@ -39,9 +39,11 @@ extern zend_module_entry sentinel_module_entry;
 #endif
 
 ZEND_BEGIN_MODULE_GLOBALS(sentinel)
-	//zend_long  global_value;
+	zend_bool log_enabled;
 	char *log_file;
 	char *api_url;
+	char *api_cache_file;
+	zend_long api_cache_ttl;
 ZEND_END_MODULE_GLOBALS(sentinel)
 
 /* Always refer to the globals in your function as SENTINEL_G(variable).
@@ -57,8 +59,10 @@ ZEND_TSRMLS_CACHE_EXTERN()
 
 #ifdef PHP_SENTINEL_DEBUG
 #define php_sentinel_debug(a) fprintf a
+#define php_sentinel_var_dump(a) php_var_dump a
 #else
 #define php_sentinel_debug(a)
+#define php_sentinel_var_dump(a)
 #endif
 
 #endif	/* PHP_SENTINEL_H */
