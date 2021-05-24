@@ -67,7 +67,7 @@ PHP_FUNCTION(confirm_sentinel_compiled)
 }
 /* }}} */
 
-static void php_sentinel_check(zend_function * fbc) /* {{{ */
+static void php_sentinel_check(zend_function *fbc) /* {{{ */
 {
     zend_string      *function_name = fbc->common.function_name;
     zend_class_entry *scope         = fbc->common.scope;

@@ -12,7 +12,7 @@
   | obtain it through the world-wide-web, please send a note to          |
   | license@php.net so we can mail you a copy immediately.               |
   +----------------------------------------------------------------------+
-  | Author:                                                              |
+  | Author: mengkang <i@mengkang.net>                                    |
   +----------------------------------------------------------------------+
 */
 
@@ -24,7 +24,7 @@
 extern zend_module_entry sentinel_module_entry;
 #define phpext_sentinel_ptr &sentinel_module_entry
 
-#define PHP_SENTINEL_VERSION "0.1.0" /* Replace with version number for your extension */
+#define PHP_SENTINEL_VERSION "0.1.0"
 
 #ifdef PHP_WIN32
 #	define PHP_SENTINEL_API __declspec(dllexport)
@@ -46,10 +46,6 @@ ZEND_BEGIN_MODULE_GLOBALS(sentinel)
 	zend_long api_cache_ttl;
 ZEND_END_MODULE_GLOBALS(sentinel)
 
-/* Always refer to the globals in your function as SENTINEL_G(variable).
-   You are encouraged to rename these macros something shorter, see
-   examples in any other php module directory.
-*/
 #define SENTINEL_G(v) ZEND_MODULE_GLOBALS_ACCESSOR(sentinel, v)
 
 #if defined(ZTS) && defined(COMPILE_DL_SENTINEL)
