@@ -96,14 +96,14 @@ static void php_sentinel_check(zend_function * fbc) /* {{{ */
     }
 
     if (INI_BOOL("sentinel.log_enabled")) {
-        time_t curtime;
-        time(&curtime);
+        struct timeval tv;
+        gettimeofday(&tv, NULL);
 
         const char *filename = zend_get_executed_filename();
         int        lineno    = zend_get_executed_lineno();
 
         //format time|function|filename|line
-        fprintf(fp, "%d|%s|%s|%d\n", curtime, ZSTR_VAL(key), filename, lineno);
+        fprintf(fp, "%ld|%s|%s|%d\n", tv.tv_sec * 1000000 + tv.tv_usec, ZSTR_VAL(key), filename, lineno);
     }
 
     zend_string_release(key);
