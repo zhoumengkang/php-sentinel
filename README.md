@@ -18,7 +18,7 @@ sentinel.api_cache_file=/tmp/sentinel.rule
 sentinel.log_enabled=1
 sentinel.log_file=/tmp/sentinel.log
 ```
-- `sentinel.api_url` 限流查询接口
+- `sentinel.api_url` 限流查询接口，**记得将 https://mengkang.net/sentinel.html 修改你自己的限流 api 地址，结构保持一致**
 - `sentinel.api_cache_ttl` 接口查询结果缓存 2 分钟
 - `sentinel.api_cache_file` 接口查询缓存路径
 - `sentinel.log_enabled` 是否开启用户自定义的方法和函数日志记录，可以用日志处理工具收集比如阿里云 SLS
